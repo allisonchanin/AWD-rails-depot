@@ -7,3 +7,57 @@
 #   ["Action", "Comedy", "Drama", "Horror"].each do |genre_name|
 #     MovieGenre.find_or_create_by!(name: genre_name)
 #   end
+Product.delete_all
+# . . .
+product = Product.create(title: 'Programming Ruby 3.3 (5th Edition)',
+  description:
+  %(<p>
+  <em>The Pragmatic Programmers' Guide</em>
+  Ruby is one of the most important programming languages in
+  use for web development. It powers the Rails framework, which
+  is the backing of some of the most important sites on the web.
+  The Pickaxe Book, named for the tool on the cover, is the definitive
+  reference on Ruby, a highly-regarded, fully object-oriented programming
+  language. This updated edition is a comprehensive reference on the language
+  itself, with a tutorial on the most important features of Ruby including
+  pattern matching and Ractors—and describes the language through Ruby 3.3.
+  </p>),
+  price: 33.95)
+  product.image.attach(io: File.open(
+  Rails.root.join('db', 'images', 'cat.jpeg')),
+  filename: 'cat.jpeg')
+  product.save!
+
+product = Product.create(title: 'Rails Scales!',
+  description:
+  %(<p>
+  <em>Practical Techniques for Performance and Growth</em>
+  Rails doesn’t scale. So say the naysayers. They’re wrong. Ruby on Rails
+  runs some of the biggest sites in the world, impacting the lives of
+  millions of users while efficiently crunching petabytes of data. This
+  book reveals how they do it, and how you can apply the same techniques
+  to your applications. Optimize everything necessary to make an
+  application function at scale: monitoring, product design, Ruby code,
+  software architecture, database access, caching, and more. Even if your
+  app may never have millions of users, you reduce the costs of hosting
+  and maintaining it.
+  </p>),
+  price: 30.95)
+  product.image.attach(io: File.open(
+  Rails.root.join('db', 'images', 'panda.jpeg')),
+  filename: 'panda.jpeg')
+  product.save!
+
+  product = Product.create(title: 'Swimming in Gems',
+    description:
+    %(<p>
+    <em>Installing and understanding Gems</em>
+    Gems are the building blocks of Ruby on Rails.
+    They are installed using the `gem` command and are managed by Bundler.
+    When used correctly, Gems can help you build scalable and maintainable applications.
+    </p>),
+    price: 30.95)
+    product.image.attach(io: File.open(
+    Rails.root.join('db', 'images', 'sea_otter.jpeg')),
+    filename: 'sea_otter.jpeg')
+    product.save!
