@@ -4,6 +4,7 @@ class Product < ApplicationRecord
 
   has_one_attached :image
   after_commit -> { broadcast_refresh_later_to "products" }
+  after_update_commit -> { broadcast_replace_to self }
 
   validates :title, :description, :image, presence: true
   validates :title, uniqueness: true
